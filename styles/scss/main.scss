@@ -1,0 +1,155 @@
+@import "variables";
+@import "global";
+@import "mixins";
+
+.header {
+  width: 100%;
+  background-color: $primary-color;
+  @include flex(center);
+  &__wrapper {
+    @include wrapper(0 38px);
+    @include flex(flex-start);
+    @include mediaQuery(xs) {
+      padding: 0 20px;
+    }
+  }
+  &__logo {
+    padding: 23px 0;
+  }
+}
+.section {
+  width: 100%;
+  @include flex(flex-start, column);
+  &__wrapper {
+    @include wrapper(48px 38px);
+    @include flex(center, column);
+    @include mediaQuery(xs) {
+      padding: 48px 20px;
+    }
+  }
+  &--dark {
+    background-color: $dark-backgorund;
+  }
+  &__title {
+    font-size: 4rem;
+    line-height: 5.2rem;
+    &--light {
+      color: $primary-color;
+    }
+    &--dark {
+      color: $secondary-color;
+    }
+  }
+  &__text {
+    padding-bottom: 36px;
+    font-size: 2rem;
+    line-height: 3.2rem;
+    text-align: center;
+
+    &--light {
+      color: $primary-color;
+    }
+    &--dark {
+      color: $secondary-color;
+    }
+  }
+  &__subtitle {
+    padding-bottom: 24px;
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+  &__dot {
+    position: relative;
+    bottom: -64px;
+    width: 32px;
+    height: 32px;
+    background: $dot-color;
+    border-radius: 50%;
+    box-shadow: 0px 4px 4px rgba(255, 56, 89, 0.2);
+  }
+}
+.slider {
+  width: 100%;
+  @include flex(space-between);
+
+  &__arrow {
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    color: $accent-color;
+    cursor: pointer;
+    @include flex(center);
+    &:hover {
+      background-color: $hover-color;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  &__wrapper {
+    width: 100%;
+    max-width: 1038px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    @include mediaQuery(xxl) {
+      width: 80%;
+    }
+    @include mediaQuery(xs) {
+      width: 60%;
+    }
+  }
+}
+.content {
+  width: 100%;
+  display: grid;
+  grid-auto-rows: 22.8rem;
+  grid-auto-flow: column;
+  grid-auto-columns: 33.2rem;
+  grid-gap: 20px;
+  &--slider {
+    @include mediaQuery(xxl) {
+      grid-auto-columns: 50%;
+    }
+    @include mediaQuery(xs) {
+      grid-auto-columns: 100%;
+      grid-template-rows: 22.8rem;
+    }
+  }
+  &--static {
+    max-width: 1038px;
+    @include mediaQuery(xxl) {
+      grid-auto-columns: 49%;
+      grid-template-rows: 22.8rem 22.8rem;
+    }
+    @include mediaQuery(xs) {
+      grid-auto-columns: 100%;
+      grid-template-rows: 22.8rem 22.8rem 22.8rem;
+    }
+  }
+}
+.box {
+  padding: 36px 26px;
+  background-color: $primary-color;
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.04));
+  @include flex(flex-start, column);
+  &__title {
+    padding-bottom: 12px;
+    font-size: 2rem;
+    line-height: 2.37rem;
+    text-align: center;
+    color: $secondary-color;
+  }
+  &__text {
+    padding-bottom: 12px;
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+    text-align: center;
+    color: $text-color;
+  }
+  @include mediaQuery(xxl) {
+    padding: 26px 16px;
+  }
+}
